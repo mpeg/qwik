@@ -76,12 +76,12 @@
   @apply overflow-y-auto;
   @apply hidden;
 
-  @apply right-auto left-[max(0px,calc(50%-43rem))];
+  @apply right-auto left-[max(0px,calc(50%-48rem))];
 
   /* large */
   @apply lg:block;
   @apply lg:pl-4 lg:pr-4;
-  @apply lg:w-[14rem];
+  @apply lg:w-[14rem] 2xl:w-[20rem];
 
   padding-top: 30px;
   top: 8rem;
@@ -119,7 +119,7 @@ details li a {
 
 .menu li a {
   color: var(--secondary-text-color);
-  padding: 0.5rem 20px;
+  padding: 0.5rem 12px;
   border-radius: 4px;
 }
 
@@ -132,4 +132,24 @@ details li a {
   .breadcrumbs button {
     @apply p-2;
   }
+}
+
+.new-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.0625rem 0.3125rem; 
+  border-radius: 1rem; 
+  font-size: 0.625rem;
+  line-height: 0.75rem; 
+  font-weight: 500; 
+  color: var(--text-color); 
+  background-color: var(--qwik-purple); 
+  margin-right: 0.5rem; /* Change margin-left to margin-right */
+  order: -1; /* Add this */
+}
+
+.parent-element {
+  display: flex;
+  align-items: center;
 }

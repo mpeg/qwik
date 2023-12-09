@@ -81,18 +81,28 @@ export function Items({
             ) : (
               <a
                 href={item.href}
-                class={{
-                  'is-active': pathname === item.href,
-                }}
+                class={`parent-element ${pathname === item.href ? 'is-active' : ''}`}
               >
+                {/* uncomment one of these to get a preview of how it looks */}
+                {/* <div class="new-badge">new</div> */}
+                {/* <div class="new-badge">updated</div> */}
+
                 {item.text}
-                {markdownItems[item.href!]?.frontmatter?.updated_at
-                  ? new Date(markdownItems[item.href!]?.frontmatter?.updated_at!).getTime() +
-                      5 * 24 * 60 * 60 * 1000 >
-                    new Date().getTime()
-                    ? 'new'
-                    : null
-                  : null}
+                {markdownItems[item.href!]?.frontmatter?.created_at ? (
+                  new Date(markdownItems[item.href!]?.frontmatter?.created_at as string).getTime() +
+                    10 * 24 * 60 * 60 * 1000 >
+                  new Date().getTime() ? (
+                    <div class="new-badge">new</div>
+                  ) : null
+                ) : null}
+
+                {markdownItems[item.href!]?.frontmatter?.updated_at ? (
+                  new Date(markdownItems[item.href!]?.frontmatter?.updated_at as string).getTime() +
+                    10 * 24 * 60 * 60 * 1000 >
+                  new Date().getTime() ? (
+                    <div class="new-badge">updated</div>
+                  ) : null
+                ) : null}
               </a>
             )}
           </li>
